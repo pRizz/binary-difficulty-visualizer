@@ -364,7 +364,7 @@ export default function BitcoinDifficultyConverter() {
               win3bitco.in
             </a>
           </p>
-          <p>Vibe coded by Peter Ryszkiewicz and lovable.dev</p>
+          <p>Free and open source software vibe coded by Peter Ryszkiewicz and lovable.dev</p>
         </footer>
       </div>
     </div>

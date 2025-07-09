@@ -1,6 +1,6 @@
 # Bitcoin Difficulty Visualizer
 
-A powerful web application for understanding and converting Bitcoin mining difficulty values. Built for developers, miners, and Bitcoin enthusiasts who want to explore the mathematical relationships behind Bitcoin's proof-of-work algorithm.
+A powerful, free and open source web application for understanding and converting Bitcoin mining difficulty values. Built for developers, miners, and Bitcoin enthusiasts who want to explore the mathematical relationships behind Bitcoin's proof-of-work algorithm.
 
 🔗 **Live App**: https://lovable.dev/projects/7d631b94-ec17-45fa-bacd-79ed608623c5  
 📂 **Source Code**: https://github.com/pRizz/binary-difficulty-visualizer
