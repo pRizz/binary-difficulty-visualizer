@@ -85,7 +85,7 @@ export function calculateDifficultyFromLeadingZeroes(leadingZeroes: number): num
 
 // Unit conversion utilities
 export const DIFFICULTY_UNITS = {
-  '': { name: 'Units', multiplier: 1 },
+  'units': { name: 'Units', multiplier: 1 },
   'K': { name: 'Kilo', multiplier: 1e3 },
   'M': { name: 'Mega', multiplier: 1e6 },
   'G': { name: 'Giga', multiplier: 1e9 },

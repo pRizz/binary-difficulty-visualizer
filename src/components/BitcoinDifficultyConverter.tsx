@@ -130,7 +130,7 @@ export default function BitcoinDifficultyConverter() {
                     <SelectContent className="bg-crypto-card border-crypto-border">
                       {Object.entries(DIFFICULTY_UNITS).map(([key, unit]) => (
                         <SelectItem key={key} value={key} className="text-foreground hover:bg-secondary">
-                          {key || 'Units'}
+                          {key === 'units' ? 'Units' : key}
                         </SelectItem>
                       ))}
                     </SelectContent>
