@@ -79,6 +79,26 @@ export function formatTargetAsHex(target: bigint): string {
   return '0x' + target.toString(16).padStart(64, '0');
 }
 
+// Format target as binary string with spaces every 8 bits
+export function formatTargetAsBinary(target: bigint): string {
+  const binaryString = target.toString(2).padStart(256, '0');
+  return binaryString.replace(/(.{8})/g, '$1 ').trim();
+}
+
+// Count leading zeroes in binary representation
+export function countLeadingZeroes(target: bigint): number {
+  const binaryString = target.toString(2).padStart(256, '0');
+  let count = 0;
+  for (const bit of binaryString) {
+    if (bit === '0') {
+      count++;
+    } else {
+      break;
+    }
+  }
+  return count;
+}
+
 // Calculate difficulty from leading binary zeroes (reverse conversion)
 export function calculateDifficultyFromLeadingZeroes(leadingZeroes: number): number {
   if (leadingZeroes < 0 || leadingZeroes >= 256) {

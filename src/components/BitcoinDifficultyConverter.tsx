@@ -12,6 +12,8 @@ import {
   calculateDifficultyFromLeadingZeroes,
   calculateTargetFromDifficulty,
   formatTargetAsHex,
+  formatTargetAsBinary,
+  countLeadingZeroes,
   formatDifficulty,
   parseDifficulty,
   formatLargeNumber,
@@ -268,6 +270,30 @@ export default function BitcoinDifficultyConverter() {
                       return target.toString();
                     } catch (error) {
                       return '0';
+                    }
+                  })()}
+                </code>
+              </div>
+            </div>
+            
+            <div className="space-y-2">
+              <Label className="text-sm font-medium text-muted-foreground">Target (Binary)</Label>
+              <div className="p-3 bg-background rounded-lg border border-crypto-border">
+                <code className="text-xs text-accent font-mono break-all leading-relaxed">
+                  {(() => {
+                    try {
+                      const target = calculateTargetFromDifficulty(actualDifficulty);
+                      const leadingZeroes = countLeadingZeroes(target);
+                      return (
+                        <div className="space-y-1">
+                          <div>{formatTargetAsBinary(target)}</div>
+                          <div className="text-muted-foreground text-xs">
+                            ({leadingZeroes} leading zeroes)
+                          </div>
+                        </div>
+                      );
+                    } catch (error) {
+                      return '0000000000000000000000000000000000000000000000000000000000000000';
                     }
                   })()}
                 </code>
