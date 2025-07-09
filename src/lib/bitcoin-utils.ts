@@ -57,6 +57,28 @@ export function calculateRequiredLeadingBinaryZeroes(difficulty: number): number
   return leadingZeroCount;
 }
 
+// Calculate the target hash threshold from difficulty
+export function calculateTargetFromDifficulty(difficulty: number): bigint {
+  if (difficulty <= 0) {
+    throw new Error("Difficulty must be greater than 0.");
+  }
+  
+  let target;
+  if (difficulty < 1 && difficulty % 1 !== 0) {
+    target = genesisTarget * BigInt(Math.floor(1 / difficulty));
+  } else {
+    difficulty = Math.floor(difficulty);
+    target = genesisTarget / BigInt(difficulty);
+  }
+  
+  return target;
+}
+
+// Format target as hex string
+export function formatTargetAsHex(target: bigint): string {
+  return '0x' + target.toString(16).padStart(64, '0');
+}
+
 // Calculate difficulty from leading binary zeroes (reverse conversion)
 export function calculateDifficultyFromLeadingZeroes(leadingZeroes: number): number {
   if (leadingZeroes < 0 || leadingZeroes >= 256) {

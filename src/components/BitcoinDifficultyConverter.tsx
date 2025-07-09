@@ -5,10 +5,13 @@ import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Separator } from '@/components/ui/separator';
 import { Badge } from '@/components/ui/badge';
-import { Calculator, Binary, TrendingUp } from 'lucide-react';
+import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip';
+import { Calculator, Binary, TrendingUp, Hash, Info } from 'lucide-react';
 import { 
   calculateRequiredLeadingBinaryZeroes, 
   calculateDifficultyFromLeadingZeroes,
+  calculateTargetFromDifficulty,
+  formatTargetAsHex,
   formatDifficulty,
   parseDifficulty,
   formatLargeNumber,
@@ -199,6 +202,71 @@ export default function BitcoinDifficultyConverter() {
             </CardContent>
           </Card>
         </div>
+
+        {/* Target Hash Section */}
+        <Card className="border-crypto-border bg-crypto-card shadow-crypto animate-fade-in">
+          <CardHeader className="pb-4">
+            <div className="flex items-center gap-2">
+              <Hash className="h-5 w-5 text-accent" />
+              <CardTitle className="text-foreground">Target Hash Threshold</CardTitle>
+              <Tooltip>
+                <TooltipTrigger>
+                  <Info className="h-4 w-4 text-muted-foreground hover:text-foreground transition-colors" />
+                </TooltipTrigger>
+                <TooltipContent className="max-w-md p-4 bg-crypto-card border-crypto-border">
+                  <div className="space-y-2 text-sm">
+                    <p className="font-semibold">Target Calculation Algorithm:</p>
+                    <div className="space-y-1 font-mono text-xs">
+                      <p>1. target = genesis_target / difficulty</p>
+                      <p>2. genesis_target = nBitsToTarget(0x1d00ffff)</p>
+                      <p>3. nBits format: [exponent][coefficient]</p>
+                      <p>4. result = coefficient × 2^(8×(exponent-3))</p>
+                    </div>
+                    <p className="text-muted-foreground">
+                      A valid Bitcoin hash must be numerically less than this target value.
+                    </p>
+                  </div>
+                </TooltipContent>
+              </Tooltip>
+            </div>
+            <CardDescription>
+              Maximum hash value that will be accepted by the Bitcoin network
+            </CardDescription>
+          </CardHeader>
+          <CardContent className="space-y-4">
+            <div className="space-y-2">
+              <Label className="text-sm font-medium text-muted-foreground">Target (Hexadecimal)</Label>
+              <div className="p-3 bg-background rounded-lg border border-crypto-border">
+                <code className="text-xs text-accent font-mono break-all">
+                  {(() => {
+                    try {
+                      const target = calculateTargetFromDifficulty(actualDifficulty);
+                      return formatTargetAsHex(target);
+                    } catch (error) {
+                      return '0x0000000000000000000000000000000000000000000000000000000000000000';
+                    }
+                  })()}
+                </code>
+              </div>
+            </div>
+            
+            <div className="space-y-2">
+              <Label className="text-sm font-medium text-muted-foreground">Target (Decimal)</Label>
+              <div className="p-3 bg-background rounded-lg border border-crypto-border">
+                <code className="text-xs text-accent font-mono break-all">
+                  {(() => {
+                    try {
+                      const target = calculateTargetFromDifficulty(actualDifficulty);
+                      return target.toString();
+                    } catch (error) {
+                      return '0';
+                    }
+                  })()}
+                </code>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
 
         {/* Stats Section */}
         <div className="grid md:grid-cols-3 gap-4 animate-fade-in">
