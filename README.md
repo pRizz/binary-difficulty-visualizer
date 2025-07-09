@@ -3,6 +3,7 @@
 ## Project info
 
 **URL**: https://lovable.dev/projects/7d631b94-ec17-45fa-bacd-79ed608623c5
+
 **Git URL**: https://github.com/pRizz/binary-difficulty-visualizer
 
 ## Project Overview
