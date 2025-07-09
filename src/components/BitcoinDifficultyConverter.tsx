@@ -196,15 +196,6 @@ export default function BitcoinDifficultyConverter() {
                 </div>
               </div>
 
-              <div className="space-y-2">
-                <Label className="text-sm font-medium text-muted-foreground">Binary Pattern</Label>
-                <div className="p-3 bg-background rounded-lg border border-crypto-border">
-                  <code className="text-xs text-bitcoin-gold font-mono break-all">
-                    {'0'.repeat(Math.min(parseInt(leadingZeroesInput) || 0, 32))}
-                    {(parseInt(leadingZeroesInput) || 0) < 32 ? '1...' : '...'}
-                  </code>
-                </div>
-              </div>
             </CardContent>
           </Card>
         </div>
