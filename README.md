@@ -1,35 +1,70 @@
-# Welcome to your Lovable project
+# Bitcoin Difficulty Visualizer
 
-## Project info
+A powerful web application for understanding and converting Bitcoin mining difficulty values. Built for developers, miners, and Bitcoin enthusiasts who want to explore the mathematical relationships behind Bitcoin's proof-of-work algorithm.
 
-**URL**: https://lovable.dev/projects/7d631b94-ec17-45fa-bacd-79ed608623c5
+🔗 **Live App**: https://lovable.dev/projects/7d631b94-ec17-45fa-bacd-79ed608623c5  
+📂 **Source Code**: https://github.com/pRizz/binary-difficulty-visualizer
 
-**Git URL**: https://github.com/pRizz/binary-difficulty-visualizer
+## 🚀 What This App Does
 
-## Project Overview
+This interactive tool helps you understand the critical relationship between Bitcoin's mining difficulty and the binary representation of valid block hashes. It provides real-time, bidirectional conversion between different ways of expressing mining difficulty.
 
-This project is a Bitcoin Difficulty Visualizer and Converter. It provides tools to understand, visualize, and convert Bitcoin network difficulty and related values. The app is built with React and TypeScript, using Vite for development and Tailwind CSS for styling. UI components are powered by shadcn-ui.
+### ✨ Key Features
 
-### Key Features
+#### 🔄 **Bidirectional Difficulty Conversion**
+- Convert from difficulty values to required leading binary zeroes
+- Convert from leading zeroes back to difficulty values
+- Support for multiple difficulty units (T, P, E, Z, Y)
+- Real-time synchronization between all representations
 
-- **Bitcoin Difficulty Converter**: Convert between Bitcoin difficulty, target, and bits. See `src/components/BitcoinDifficultyConverter.tsx` for the main logic and UI.
-- **Reusable UI Components**: Modular UI elements (accordion, alert, button, card, chart, etc.) are located in `src/components/ui/` and can be reused throughout the app.
-- **Utility Functions**: Bitcoin-specific calculations and helpers are in `src/lib/bitcoin-utils.ts` and `src/lib/utils.ts`.
-- **Responsive Design**: Includes mobile-friendly hooks and layouts (see `src/hooks/use-mobile.tsx`).
-- **Routing**: Main pages are in `src/pages/` (e.g., `Index.tsx` for the homepage, `NotFound.tsx` for 404s).
+#### 🎯 **Target Hash Visualization**
+- View target hash threshold in **hexadecimal**, **decimal**, and **binary** formats
+- Binary representation with 8-bit spacing for readability
+- Automatic counting of leading zeroes in target hash
+- Clear explanation of how target values are calculated
 
-### File Structure
+#### 📊 **Probability & Statistics**
+- Calculate exact probability of finding a valid hash (1 in 2^n)
+- Display human-readable probability formats (millions, billions, etc.)
+- Show log₂ difficulty for mathematical analysis
+- Visualize zeroes ratio as percentage of 256-bit hash space
 
-- `src/App.tsx` – Main React app entry point.
-- `src/components/BitcoinDifficultyConverter.tsx` – Core component for difficulty conversion and visualization.
-- `src/components/ui/` – Collection of reusable UI components.
-- `src/lib/bitcoin-utils.ts` – Bitcoin difficulty/target/bits conversion logic.
-- `src/pages/Index.tsx` – Main landing page.
-- `src/pages/NotFound.tsx` – 404 page.
+#### 🧮 **Advanced Calculations**
+- Implements authentic Bitcoin difficulty algorithm
+- Uses nBits to target conversion (0x1d00ffff genesis target)
+- Handles large numbers with precision (up to 256-bit integers)
+- Error handling for edge cases and invalid inputs
 
-### Example Usage
+#### 🎨 **Beautiful, Responsive Design**
+- Modern gradient-based crypto-inspired theme
+- Mobile-friendly responsive layout
+- Dark/light mode support through design system
+- Smooth animations and transitions
 
-To convert Bitcoin difficulty to target or bits, use the converter on the main page. The logic is handled in `BitcoinDifficultyConverter.tsx` and uses helpers from `bitcoin-utils.ts`.
+## 🎓 Educational Value
+
+Perfect for:
+- **Blockchain Developers**: Understanding proof-of-work mechanics
+- **Mining Engineers**: Calculating hash rate requirements
+- **Bitcoin Researchers**: Analyzing difficulty adjustment algorithms
+- **Crypto Educators**: Teaching Bitcoin's security model
+- **Students**: Learning about cryptographic hash functions
+
+## 🛠 Technical Implementation
+
+### Architecture
+- **Frontend**: React 18 + TypeScript for type safety
+- **Build Tool**: Vite for fast development and optimized builds
+- **Styling**: Tailwind CSS with custom crypto design tokens
+- **UI Components**: shadcn/ui for consistent, accessible components
+- **State Management**: React hooks with bidirectional data flow
+- **Utilities**: Custom Bitcoin calculation library
+
+### Key Components
+- `BitcoinDifficultyConverter.tsx` - Main interactive converter interface
+- `bitcoin-utils.ts` - Core Bitcoin difficulty calculation algorithms
+- `ui/` components - Reusable, themed UI elements
+- Custom design system with crypto-specific color palette
 
 ## How can I edit this code?
 
