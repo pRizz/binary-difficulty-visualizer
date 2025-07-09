@@ -352,8 +352,19 @@ export default function BitcoinDifficultyConverter() {
         </Card>
 
         {/* Footer */}
-        <footer className="text-center py-6 text-muted-foreground text-sm">
-          Vibe coded by Peter Ryszkiewicz and lovable.dev
+        <footer className="text-center py-6 text-muted-foreground text-sm space-y-2">
+          <p>
+            Learn more about bitcoin mining and try bitcoin mining in your web browser at{' '}
+            <a 
+              href="https://www.win3bitco.in/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-bitcoin-orange hover:text-bitcoin-gold transition-colors underline"
+            >
+              win3bitco.in
+            </a>
+          </p>
+          <p>Vibe coded by Peter Ryszkiewicz and lovable.dev</p>
         </footer>
       </div>
     </div>
