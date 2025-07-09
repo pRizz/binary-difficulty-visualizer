@@ -11,6 +11,7 @@ import {
   calculateDifficultyFromLeadingZeroes,
   formatDifficulty,
   parseDifficulty,
+  formatLargeNumber,
   DIFFICULTY_UNITS,
   type DifficultyUnit
 } from '@/lib/bitcoin-utils';
@@ -186,6 +187,11 @@ export default function BitcoinDifficultyConverter() {
                 <div className="p-3 bg-background rounded-lg border border-crypto-border">
                   <code className="text-sm text-bitcoin-gold font-mono">
                     1 in {Math.pow(2, parseInt(leadingZeroesInput) || 0).toLocaleString()}
+                  </code>
+                </div>
+                <div className="p-3 bg-background rounded-lg border border-crypto-border">
+                  <code className="text-sm text-accent font-mono">
+                    1 in {formatLargeNumber(Math.pow(2, parseInt(leadingZeroesInput) || 0))}
                   </code>
                 </div>
               </div>

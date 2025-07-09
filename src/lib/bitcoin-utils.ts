@@ -106,3 +106,37 @@ export function parseDifficulty(displayValue: string, unit: DifficultyUnit): num
   if (isNaN(numValue)) return 0;
   return numValue * DIFFICULTY_UNITS[unit].multiplier;
 }
+
+// Large number formatting utilities
+const LARGE_NUMBER_UNITS = [
+  { name: 'million', value: 1e6 },
+  { name: 'billion', value: 1e9 },
+  { name: 'trillion', value: 1e12 },
+  { name: 'quadrillion', value: 1e15 },
+  { name: 'quintillion', value: 1e18 },
+  { name: 'sextillion', value: 1e21 },
+  { name: 'septillion', value: 1e24 },
+  { name: 'octillion', value: 1e27 },
+  { name: 'nonillion', value: 1e30 },
+  { name: 'decillion', value: 1e33 },
+  { name: 'undecillion', value: 1e36 },
+  { name: 'duodecillion', value: 1e39 },
+];
+
+export function formatLargeNumber(num: number): string {
+  if (num < 1e6) {
+    return num.toLocaleString();
+  }
+
+  // Find the largest unit that fits
+  for (let i = LARGE_NUMBER_UNITS.length - 1; i >= 0; i--) {
+    const unit = LARGE_NUMBER_UNITS[i];
+    if (num >= unit.value) {
+      const value = num / unit.value;
+      const formattedValue = value < 10 ? value.toFixed(1) : Math.round(value).toString();
+      return `${formattedValue} ${unit.name}`;
+    }
+  }
+
+  return num.toLocaleString();
+}
