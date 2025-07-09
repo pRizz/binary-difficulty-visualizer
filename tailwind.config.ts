@@ -52,6 +52,11 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
+				'bitcoin-orange': 'hsl(var(--bitcoin-orange))',
+				'bitcoin-gold': 'hsl(var(--bitcoin-gold))',
+				'crypto-dark': 'hsl(var(--crypto-dark))',
+				'crypto-card': 'hsl(var(--crypto-card))',
+				'crypto-border': 'hsl(var(--crypto-border))',
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',
 					foreground: 'hsl(var(--sidebar-foreground))',
@@ -84,11 +89,35 @@ export default {
 					to: {
 						height: '0'
 					}
+				},
+				'glow-pulse': {
+					'0%, 100%': {
+						boxShadow: '0 0 20px hsl(var(--bitcoin-orange) / 0.3)'
+					},
+					'50%': {
+						boxShadow: '0 0 40px hsl(var(--bitcoin-orange) / 0.6)'
+					}
+				},
+				'fade-in': {
+					'0%': {
+						opacity: '0',
+						transform: 'translateY(10px)'
+					},
+					'100%': {
+						opacity: '1',
+						transform: 'translateY(0)'
+					}
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'glow-pulse': 'glow-pulse 2s ease-in-out infinite',
+				'fade-in': 'fade-in 0.5s ease-out'
+			},
+			backgroundImage: {
+				'gradient-bitcoin': 'var(--gradient-bitcoin)',
+				'gradient-crypto-bg': 'var(--gradient-crypto-bg)'
 			}
 		}
 	},
