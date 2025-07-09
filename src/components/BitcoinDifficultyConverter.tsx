@@ -6,7 +6,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Separator } from '@/components/ui/separator';
 import { Badge } from '@/components/ui/badge';
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip';
-import { Calculator, Binary, TrendingUp, Hash, Info } from 'lucide-react';
+import { Calculator, Binary, TrendingUp, Hash, Info, Github } from 'lucide-react';
 import { 
   calculateRequiredLeadingBinaryZeroes, 
   calculateDifficultyFromLeadingZeroes,
@@ -88,6 +88,14 @@ export default function BitcoinDifficultyConverter() {
             <h1 className="text-4xl font-bold bg-gradient-bitcoin bg-clip-text text-transparent">
               Bitcoin Difficulty Converter
             </h1>
+            <a 
+              href="https://github.com/pRizz/binary-difficulty-visualizer" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="p-2 bg-secondary/50 hover:bg-secondary rounded-lg transition-colors"
+            >
+              <Github className="h-6 w-6 text-foreground" />
+            </a>
           </div>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
             Convert between Bitcoin network difficulty values and their binary representation. 
@@ -316,6 +324,11 @@ export default function BitcoinDifficultyConverter() {
             </div>
           </CardContent>
         </Card>
+
+        {/* Footer */}
+        <footer className="text-center py-6 text-muted-foreground text-sm">
+          Vibe coded by Peter Ryszkiewicz and lovable.dev
+        </footer>
       </div>
     </div>
   );
