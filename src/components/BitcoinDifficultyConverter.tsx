@@ -358,7 +358,7 @@ export default function BitcoinDifficultyConverter() {
             <a 
               href="https://www.win3bitco.in/" 
               target="_blank" 
-              rel="noopener noreferrer"
+              rel="noopener"
               className="text-bitcoin-orange hover:text-bitcoin-gold transition-colors underline"
             >
               win3bitco.in
